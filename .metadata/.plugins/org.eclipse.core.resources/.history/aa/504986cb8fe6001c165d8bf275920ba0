@@ -1,0 +1,19 @@
+package com.nitaraweb.AccountManagement;
+
+import java.util.Map;
+
+import org.testng.annotations.Test;
+import com.nitaraweb.base.GenericBase;
+import com.nitaraweb.utils.DataproviderUtils;
+
+public class SignIn_ValidCredentials extends GenericBase{
+
+	@Test(dataProvider = "getData",dataProviderClass = DataproviderUtils.class)
+	public void signIn(Map<String,String> data) {
+		
+		basePage.launchURL(properties.getProperty("url"));
+		amazonHomePage.click_SignIn();
+		
+	}
+
+}

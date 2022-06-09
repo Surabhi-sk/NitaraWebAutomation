@@ -1,0 +1,6 @@
+browser = chrome
+url = https://www.amazon.in
+APIBaseUrl = https://test.nitara.co.in
+ViewFarmAnalysis= /v2/FM/ViewFarmAnalysis
+username = 334466889
+password = 123456

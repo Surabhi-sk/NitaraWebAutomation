@@ -1,0 +1,31 @@
+package com.nitaraweb.base;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+import org.openqa.selenium.WebDriver;
+
+public class BaseClass {
+	
+	protected static WebDriver driver;
+	protected static Properties properties;
+	
+	public BaseClass() {
+
+		try {
+			properties = new Properties();
+			FileInputStream ip = new FileInputStream("src\\main\\java\\com\\nitaraweb\\config\\config.properties");
+			properties.load(ip);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("file not found");
+		} catch (IOException e) {
+			System.out.println("io exception");
+
+		}
+
+	}
+
+}

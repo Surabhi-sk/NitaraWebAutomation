@@ -1,0 +1,50 @@
+package com.nitaraweb.API;
+
+public class FarmerLogin {
+	
+	public void farmerLogin() {
+		//String url = prop.getProperty("baseurl");
+				RestAssured.baseURI = url;
+
+				RequestSpecification request = RestAssured.given();
+				
+				String filepath = prop.getProperty("AccountManagement");
+				ExcelUtils exceldata = new ExcelUtils();
+
+				JSONObject	username = exceldata.readRowField("GeneralData", "username", filepath);
+				JSONObject	password = exceldata.readRowField("GeneralData", "Password", filepath);
+				JSONObject requestParams = new JSONObject();
+				requestParams.put("countryCode", "+91"); // Cast
+				requestParams.put("phone",username.getString("username")); // username.getString("username")
+				requestParams.put("Pin",password.getString("Password")); 
+				requestParams.put("deviceName", "DELL_PC"); 		 
+				requestParams.put("deviceType",  "LAPTOP");
+				requestParams.put("key",  "com.nitara.farmer");
+				//requestParams.put("key",  "com.nitara.serviceprovider");
+
+				request.body(requestParams.toString());
+
+				request.header("Content-Type", "application/json");
+
+				Response response = request.post("/v3/AM/UserLogin");
+				//Print response
+						response.prettyPeek();
+
+
+				int  statusCode = response.getStatusCode();
+
+				System.out.println("The status code recieved: " + statusCode);
+
+				//Validate Status code
+				Assert.assertEquals(response.getStatusCode(),200);
+
+				String jsonString = response.asString();
+				String  message = JsonPath.from(jsonString).get("message");
+				//Validate success message
+				Assert.assertEquals(message,"Logged in successfully.");
+
+				String token = JsonPath.from(jsonString).get("token");
+				return (token);
+	}
+
+}

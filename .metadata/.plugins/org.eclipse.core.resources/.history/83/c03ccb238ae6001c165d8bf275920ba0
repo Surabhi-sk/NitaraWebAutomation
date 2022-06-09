@@ -1,0 +1,19 @@
+package com.nitaraweb.AccountManagement;
+
+import org.testng.annotations.Test;
+
+import com.nitaraweb.base.GenericBase;
+import com.nitaraweb.pages.AmazonHomePage;
+
+public class Login extends GenericBase{
+
+	@Test
+	public void login() {
+
+		driver.get("https://www.amazon.in");	
+
+		AmazonHomePage homepage = new AmazonHomePage();
+		homepage.click_SignIn();
+	}
+
+}

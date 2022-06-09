@@ -1,0 +1,4 @@
+browser = chrome
+url = https://www.amazon.in
+APIBaseUrl = https://test.nitara.co.in
+ViewFarmAnalysis= /v2/FM/ViewFarmAnalysis

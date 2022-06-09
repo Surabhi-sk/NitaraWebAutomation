@@ -1,0 +1,37 @@
+package com.nitaraweb.API;
+
+public class ViewFarmAnalysis {
+	
+	String url = prop.getProperty("baseurl");
+	String abstractname = prop.getProperty("ViewFarmAnalysis");
+	RestAssured.baseURI = url;
+	String filepath = prop.getProperty("AccountManagement");
+
+	//Login
+	ExcelUtils exceldata = new ExcelUtils();
+
+	Login user = new Login();
+	String token = user.userToken(url);
+
+	//read user name and password
+	JSONObject requestParams =  exceldata.readRowField("GeneralData", "farmId", filepath);
+	requestParams.put("farmId","11542bdd-17b8-44ea-9bfe-7d4f108065c5"); 
+	RequestSpecification request = RestAssured.given();
+
+	Response response = request.body(requestParams.toString())
+			.header("Content-Type", "application/json")
+			.header("Authorization","Bearer " + token)
+			.post("/v2/FM/ViewFarmAnalysis");
+
+	System.out.println("\n\"" + abstractname + "\"\n");
+	//Print response
+	response.prettyPeek();
+
+	//Validate status code
+
+	Assert.assertEquals(response.getStatusCode(),200 );
+
+	String jsonString = response.asString();
+	String  message = JsonPath.from(jsonString).get("message");
+
+}

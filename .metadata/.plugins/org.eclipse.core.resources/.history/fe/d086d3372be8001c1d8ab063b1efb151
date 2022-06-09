@@ -1,0 +1,52 @@
+package com.nitaraweb.API;
+
+
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import com.nitaraweb.base.GenericBase;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+
+public class ViewFarmAnalysis extends GenericBase
+{
+
+
+	public void viewFarmAnalysis() 
+	{
+		String url = properties.getProperty("baseurl");
+		String abstractname = properties.getProperty("ViewFarmAnalysis");
+		RestAssured.baseURI = url;
+
+		FarmerLogin user = new FarmerLogin();
+		String token = user.farmerLogin(url);
+
+		//read user name and password
+		JSONObject requestParams =  new JSONObject();
+		GetFarmId farm = new GetFarmId();
+		requestParams.put("farmId",farm.getFarmId(url, token)); 
+		RequestSpecification request = RestAssured.given();
+
+		Response response = request.body(requestParams.toString())
+				.header("Content-Type", "application/json")
+				.header("Authorization","Bearer " + token)
+				.post("/v2/FM/ViewFarmAnalysis");
+
+		System.out.println("\n\"" + abstractname + "\"\n");
+		//Print response
+		response.prettyPeek();
+
+		//Validate status code
+		Assert.assertEquals(response.getStatusCode(),200 );
+
+		JSONObject responseObject = new JSONObject(response.toString());
+
+		System.out.println(responseObject);
+	}
+	}	

@@ -1,0 +1,52 @@
+package com.nitaraweb.API;
+
+import com.nitaraweb.base.GenericBase;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+public class ViewFarmAnalysis extends GenericBase
+{
+
+	@Test(groups= {"Smoke"})
+	@Parameters({ "url" })
+	public void viewFarmAnalysis() throws Exception 
+	{
+		String url = prop.getProperty("baseurl");
+		String abstractname = prop.getProperty("ViewFarmAnalysis");
+		RestAssured.baseURI = url;
+		String filepath = prop.getProperty("AccountManagement");
+
+		//Login
+		ExcelUtils exceldata = new ExcelUtils();
+
+		Login user = new Login();
+		String token = user.userToken(url);
+
+		//read user name and password
+		JSONObject requestParams =  exceldata.readRowField("GeneralData", "farmId", filepath);
+		requestParams.put("farmId","11542bdd-17b8-44ea-9bfe-7d4f108065c5"); 
+		RequestSpecification request = RestAssured.given();
+
+		Response response = request.body(requestParams.toString())
+				.header("Content-Type", "application/json")
+				.header("Authorization","Bearer " + token)
+				.post("/v2/FM/ViewFarmAnalysis");
+
+		System.out.println("\n\"" + abstractname + "\"\n");
+		//Print response
+		response.prettyPeek();
+
+		//Validate status code
+
+		Assert.assertEquals(response.getStatusCode(),200 );
+
+		String jsonString = response.asString();
+		String  message = JsonPath.from(jsonString).get("message");
+	}	

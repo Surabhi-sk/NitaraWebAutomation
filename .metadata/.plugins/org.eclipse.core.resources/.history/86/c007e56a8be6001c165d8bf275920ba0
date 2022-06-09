@@ -1,0 +1,15 @@
+package com.nitaraweb.AccountManagement;
+
+import org.testng.annotations.Test;
+import com.nitaraweb.base.GenericBase;
+
+public class SignIn extends GenericBase{
+
+	@Test
+	public void signIn() {
+
+			
+		amazonHomePage.click_SignIn();
+	}
+
+}

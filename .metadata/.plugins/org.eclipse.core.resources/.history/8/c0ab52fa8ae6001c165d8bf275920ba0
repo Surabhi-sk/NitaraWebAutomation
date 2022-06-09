@@ -1,0 +1,15 @@
+package com.nitaraweb.AccountManagement;
+
+import com.nitaraweb.pages.AmazonHomePage;
+
+public class PageInitialiser {
+
+	protected static AmazonHomePage amazonHomePage;
+
+	public static void initializeAllPages() {
+
+		amazonHomePage = new AmazonHomePage();
+
+	}
+
+}
