@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-10T01:17:30 IST" name="Default suite" finished-at="2022-06-10T01:17:35 IST" duration-ms="5253">
+  <suite started-at="2022-06-16T19:17:42 IST" name="Default suite" finished-at="2022-06-16T19:17:58 IST" duration-ms="15324">
     <groups>
     </groups>
-    <test started-at="2022-06-10T01:17:30 IST" name="Default test" finished-at="2022-06-10T01:17:35 IST" duration-ms="5253">
-      <class name="com.nitaraweb.API.ViewFarmAnalysis">
-        <test-method signature="viewFarmAnalysis()[pri:0, instance:com.nitaraweb.API.ViewFarmAnalysis@6a192cfe]" started-at="2022-06-10T01:17:30 IST" name="viewFarmAnalysis" finished-at="2022-06-10T01:17:35 IST" duration-ms="5218" status="PASS">
+    <test started-at="2022-06-16T19:17:42 IST" name="Default test" finished-at="2022-06-16T19:17:58 IST" duration-ms="15324">
+      <class name="com.nitaraweb.AccountManagement.ValidFarmData">
+        <test-method is-config="true" signature="initializaton()[pri:0, instance:com.nitaraweb.AccountManagement.ValidFarmData@6572421]" started-at="2022-06-16T19:17:42 IST" name="initializaton" finished-at="2022-06-16T19:17:45 IST" duration-ms="2822" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- viewFarmAnalysis -->
-      </class> <!-- com.nitaraweb.API.ViewFarmAnalysis -->
+        </test-method> <!-- initializaton -->
+        <test-method is-config="true" signature="Preconfig_Methods()[pri:0, instance:com.nitaraweb.AccountManagement.ValidFarmData@6572421]" started-at="2022-06-16T19:17:45 IST" name="Preconfig_Methods" finished-at="2022-06-16T19:17:57 IST" duration-ms="11558" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Preconfig_Methods -->
+        <test-method signature="Validate_All_CattleBreakdownData()[pri:0, instance:com.nitaraweb.AccountManagement.ValidFarmData@6572421]" started-at="2022-06-16T19:17:57 IST" name="Validate_All_CattleBreakdownData" finished-at="2022-06-16T19:17:57 IST" duration-ms="334" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_All_CattleBreakdownData -->
+        <test-method signature="Validate_Buffalo_CattleBreakdownData()[pri:0, instance:com.nitaraweb.AccountManagement.ValidFarmData@6572421]" started-at="2022-06-16T19:17:57 IST" name="Validate_Buffalo_CattleBreakdownData" finished-at="2022-06-16T19:17:57 IST" duration-ms="238" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Buffalo_CattleBreakdownData -->
+        <test-method signature="Validate_Cow_CattleBreakdownData()[pri:0, instance:com.nitaraweb.AccountManagement.ValidFarmData@6572421]" started-at="2022-06-16T19:17:57 IST" name="Validate_Cow_CattleBreakdownData" finished-at="2022-06-16T19:17:58 IST" duration-ms="229" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Cow_CattleBreakdownData -->
+        <test-method is-config="true" signature="tearDownMain()[pri:0, instance:com.nitaraweb.AccountManagement.ValidFarmData@6572421]" started-at="2022-06-16T19:17:58 IST" name="tearDownMain" finished-at="2022-06-16T19:17:58 IST" duration-ms="100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMain -->
+      </class> <!-- com.nitaraweb.AccountManagement.ValidFarmData -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

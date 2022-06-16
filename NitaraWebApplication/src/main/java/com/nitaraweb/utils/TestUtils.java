@@ -5,12 +5,15 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import com.nitaraweb.API.ViewFarmAnalysis;
 import com.nitaraweb.base.GenericBase;
 
 public class TestUtils extends GenericBase{
@@ -39,5 +42,37 @@ public class TestUtils extends GenericBase{
 
 	}
 
-
+	public static void Login_Nitara() {
+		basePage.launchURL(properties.getProperty("url"));
+		nitaraLoginPage.enterPhoneNumber(properties.getProperty("username"));
+		nitaraLoginPage.enterPassword(properties.getProperty("password"));
+		nitaraLoginPage.click_SignIn();
+	}
+	
+	public static String getCount(JSONObject obj, String type) {
+		return ((Integer) obj.get(type)).toString();
+	}
+	
+	public static HashMap<String, String> getBreedingData(JSONObject farmBreedingStatus) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("openCount", getCount(farmBreedingStatus, "openCount"));
+		map.put("inseminatedCount", getCount(farmBreedingStatus, "inseminatedCount"));
+		map.put("pregnantCount", getCount(farmBreedingStatus, "pregnantCount"));
+		map.put("dryCount", getCount(farmBreedingStatus, "dryCount"));
+		
+		return map;
+	}
+	
+	public static HashMap<String, String> getCattleData(JSONObject farmStatus) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("cattleCount", getCount(farmStatus, "cattleCount"));
+		map.put("calfCount", getCount(farmStatus, "calfCount"));
+		map.put("heiferCount", getCount(farmStatus, "heiferCount"));
+		map.put("milchCount", getCount(farmStatus, "milchCount"));
+		map.put("bullCount", getCount(farmStatus, "bullCount"));
+		
+		return map;
+	}
 }

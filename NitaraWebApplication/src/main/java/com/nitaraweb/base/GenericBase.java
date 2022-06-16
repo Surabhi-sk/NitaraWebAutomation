@@ -13,8 +13,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-
-
 public class GenericBase extends PageInitialiser{
 
 	protected static WebDriver driver;
@@ -29,7 +27,6 @@ public class GenericBase extends PageInitialiser{
 			FileInputStream ip = new FileInputStream("src\\main\\java\\com\\nitaraweb\\config\\config.properties");
 			properties.load(ip);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("file not found");
 		} catch (IOException e) {
@@ -46,15 +43,11 @@ public class GenericBase extends PageInitialiser{
 
 		PageInitialiser.initializeAllPages();
 
-
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 
 		//		driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		//		driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-
-
-
 	}
 
 
