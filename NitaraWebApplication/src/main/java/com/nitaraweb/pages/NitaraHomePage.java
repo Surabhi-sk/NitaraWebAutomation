@@ -11,6 +11,7 @@ public class NitaraHomePage extends BasePage{
 		PageFactory.initElements(driver, this);
 	}	
 	
+//  <!----------  Cattle Breakdown  ---------->
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[1]/div[2]/div/div/label")
 	public WebElement totalCattleCount;
 	
@@ -28,7 +29,10 @@ public class NitaraHomePage extends BasePage{
 	
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[1]/div[2]/div/div/div[3]/div[2]/div/div/div/div[3]/div/span[1]")
 	public WebElement curHeiferCount;
+//  <!----------  Cattle Breakdown  ---------->
 	
+	
+//  <!----------  Farm Breeding Status  ---------->
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[2]/div/div/div/div[2]/div[1]/span[1]")
 	public WebElement curOpenCount;
 	
@@ -40,6 +44,34 @@ public class NitaraHomePage extends BasePage{
 	
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[2]/div/div/div/div[2]/div[4]/span[1]")
 	public WebElement curDryCount;
+//  <!----------  Farm Breeding Status  ---------->
+	
+	
+//  <!----------  Upcoming Activity : Health  ---------->
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[1]/div[1]/div[1]/div/div/div[2]/div[1]/span[1]")
+	public WebElement upcomingHeatCount;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/span[1]")
+	public WebElement upcomingCalvingCount;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/span[1]")
+	public WebElement upcomingDryPeriodCount;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[1]/div[1]/div[2]/div/div/div[2]/div[1]/span[1]")
+	public WebElement upcomingPregnancyDiagnosisCount;
+//  <!----------  Upcoming Activity : Health  ---------->
+	
+	
+//  <!----------  Upcoming Activity : Breeding  ---------->
+//	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[1]/div[2]/div/div/div[3]/div[1]/div/div/div/div[3]/div/span[1]")
+//	public WebElement upcomingVaccinationsCount;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[3]/div[1]/div/div/div/div[2]/div[1]/span[1]")
+	public WebElement upcomingFollowUpsCount;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[3]/div[2]/div/div/div/div[2]/div[1]/span[1]")
+	public WebElement upcomingDewormingCount;
+//  <!----------  Upcoming Activity : Breeding  ---------->
 	
 	// Method to get total count of various cattle types
 	public String getCattleCount(String cattleType) {
@@ -90,5 +122,26 @@ public class NitaraHomePage extends BasePage{
 		}
 		
 		optionRadioButton.click();
+	}
+	
+	// Method to get status of various upcoming activites
+	public String getUpcomingStatusCount(String activity) {
+		String count = "";
+		
+		if(activity.equals("heat")) {
+			count = upcomingHeatCount.getAttribute("textContent");
+		} else if(activity.equals("calving")) {
+			count = upcomingCalvingCount.getAttribute("textContent");
+		} else if(activity.equals("pregnancy_diagnosis")) {
+			count = upcomingPregnancyDiagnosisCount.getAttribute("textContent");
+		} else if(activity.equals("dry_period")) {
+			count = upcomingDryPeriodCount.getAttribute("textContent");
+		} else if(activity.equals("follow_ups")) {
+			count = upcomingFollowUpsCount.getAttribute("textContent");
+		} else if(activity.equals("deworming")) {
+			count = upcomingDewormingCount.getAttribute("textContent");
+		}
+		
+		return count;
 	}
 }
