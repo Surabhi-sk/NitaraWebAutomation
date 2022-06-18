@@ -5,9 +5,8 @@
     <classes>
       <class name="com.nitaraweb.AccountManagement.ValidFarmData">
         <methods>
-          <include name="Validate_Cow_CattleBreakdownData"/>
+          <include name="Validate_All_CattleBreakdownData"/>
           <include name="initializaton"/>
-          <include name="Validate_Buffalo_CattleBreakdownData"/>
           <include name="tearDownMain"/>
           <include name="Preconfig_Methods"/>
         </methods>

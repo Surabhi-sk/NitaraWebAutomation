@@ -75,4 +75,32 @@ public class TestUtils extends GenericBase{
 		
 		return map;
 	}
+	
+	public static HashMap<String, String> getUpcomingHealthData(JSONObject health) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("hsCount", getCount(health, "hsCount"));
+		map.put("bqCount", getCount(health, "bqCount"));
+		map.put("fmdCount", getCount(health, "fmdCount"));
+		map.put("brucellosisCount", getCount(health, "brucellosisCount"));
+		map.put("ibrCount", getCount(health, "ibrCount"));
+		map.put("theileriaCount", getCount(health, "theileriaCount"));
+		map.put("anthraxCount", getCount(health, "anthraxCount"));
+		map.put("rabiesCount", getCount(health, "rabiesCount"));
+		map.put("dewormingCount", getCount(health, "dewormingCount"));
+		map.put("followupCount", getCount(health, "followupCount"));
+		
+		return map;
+	}
+	
+	public static HashMap<String, String> getUpcomingBreedingData(JSONObject breeding) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("heatCount", getCount(breeding, "heatCount"));
+		map.put("pdCount", getCount(breeding, "pdCount"));
+		map.put("calvingCount", getCount(breeding, "calvingCount"));
+		map.put("dryPeriodCount", getCount(breeding, "dryPeriodCount"));
+		
+		return map;
+	}
 }

@@ -39,9 +39,14 @@ public class ValidFarmData extends GenericBase{
 		JSONObject allDetails = farmDetails.getJSONObject("allDetails");
 		JSONObject farmStatus = allDetails.getJSONObject("farmStatus");
 		JSONObject farmBreedingStatus = allDetails.getJSONObject("farmBreedingStatus");
+		JSONObject upcomingActivities = allDetails.getJSONObject("upcomingActivities");
+		JSONObject health = upcomingActivities.getJSONObject("health");
+		JSONObject breeding = upcomingActivities.getJSONObject("breeding");
 		
 		HashMap<String, String> cattleData = TestUtils.getCattleData(farmStatus);
 		HashMap<String, String> breedingData = TestUtils.getBreedingData(farmBreedingStatus);
+		HashMap<String, String> upcomingHealthData = TestUtils.getUpcomingHealthData(health);
+		HashMap<String, String> upcomingBreedingData = TestUtils.getUpcomingBreedingData(breeding);
 		
 		nitaraHomePage.chooseFilter("all");
 		
@@ -56,6 +61,21 @@ public class ValidFarmData extends GenericBase{
 		Assert.assertEquals(breedingData.get("pregnantCount"), nitaraHomePage.getBreedingCattleCount("pregnant"));
 		Assert.assertEquals(breedingData.get("dryCount"), nitaraHomePage.getBreedingCattleCount("dry"));	
 	
+		Assert.assertEquals(upcomingHealthData.get("hsCount"), nitaraHomePage.getUpcomingHealthStatus("hs"));
+		Assert.assertEquals(upcomingHealthData.get("bqCount"), nitaraHomePage.getUpcomingHealthStatus("bq"));
+		Assert.assertEquals(upcomingHealthData.get("fmdCount"), nitaraHomePage.getUpcomingHealthStatus("fmd"));
+		Assert.assertEquals(upcomingHealthData.get("brucellosisCount"), nitaraHomePage.getUpcomingHealthStatus("brucellosis"));
+		Assert.assertEquals(upcomingHealthData.get("ibrCount"), nitaraHomePage.getUpcomingHealthStatus("ibr"));
+		Assert.assertEquals(upcomingHealthData.get("theileriaCount"), nitaraHomePage.getUpcomingHealthStatus("theileria"));
+		Assert.assertEquals(upcomingHealthData.get("anthraxCount"), nitaraHomePage.getUpcomingHealthStatus("anthrax"));
+		Assert.assertEquals(upcomingHealthData.get("rabiesCount"), nitaraHomePage.getUpcomingHealthStatus("rabies"));
+		Assert.assertEquals(upcomingHealthData.get("dewormingCount"), nitaraHomePage.getUpcomingHealthStatus("deworming"));
+		Assert.assertEquals(upcomingHealthData.get("followupCount"), nitaraHomePage.getUpcomingHealthStatus("follow_ups"));
+	
+		Assert.assertEquals(upcomingBreedingData.get("heatCount"), nitaraHomePage.getUpcomingBreedingStatus("heat"));
+		Assert.assertEquals(upcomingBreedingData.get("pdCount"), nitaraHomePage.getUpcomingBreedingStatus("pregnancy_diagnosis"));
+		Assert.assertEquals(upcomingBreedingData.get("calvingCount"), nitaraHomePage.getUpcomingBreedingStatus("calving"));
+		Assert.assertEquals(upcomingBreedingData.get("dryPeriodCount"), nitaraHomePage.getUpcomingBreedingStatus("dry_period"));	
 	}
 	
 	@Test
@@ -66,9 +86,14 @@ public class ValidFarmData extends GenericBase{
 		JSONObject cowDetails = farmDetails.getJSONObject("cowDetails");
 		JSONObject farmStatus = cowDetails.getJSONObject("farmStatus");
 		JSONObject farmBreedingStatus = cowDetails.getJSONObject("farmBreedingStatus");
+		JSONObject upcomingActivities = cowDetails.getJSONObject("upcomingActivities");
+		JSONObject health = upcomingActivities.getJSONObject("health");
+		JSONObject breeding = upcomingActivities.getJSONObject("breeding");
 		
 		HashMap<String, String> cattleData = TestUtils.getCattleData(farmStatus);
 		HashMap<String, String> breedingData = TestUtils.getBreedingData(farmBreedingStatus);
+		HashMap<String, String> upcomingHealthData = TestUtils.getUpcomingHealthData(health);
+		HashMap<String, String> upcomingBreedingData = TestUtils.getUpcomingBreedingData(breeding);
 		
 		nitaraHomePage.chooseFilter("cow");
 		
@@ -82,7 +107,22 @@ public class ValidFarmData extends GenericBase{
 		Assert.assertEquals(breedingData.get("inseminatedCount"), nitaraHomePage.getBreedingCattleCount("inseminated"));
 		Assert.assertEquals(breedingData.get("pregnantCount"), nitaraHomePage.getBreedingCattleCount("pregnant"));
 		Assert.assertEquals(breedingData.get("dryCount"), nitaraHomePage.getBreedingCattleCount("dry"));	
-				
+			
+		Assert.assertEquals(upcomingHealthData.get("hsCount"), nitaraHomePage.getUpcomingHealthStatus("hs"));
+		Assert.assertEquals(upcomingHealthData.get("bqCount"), nitaraHomePage.getUpcomingHealthStatus("bq"));
+		Assert.assertEquals(upcomingHealthData.get("fmdCount"), nitaraHomePage.getUpcomingHealthStatus("fmd"));
+		Assert.assertEquals(upcomingHealthData.get("brucellosisCount"), nitaraHomePage.getUpcomingHealthStatus("brucellosis"));
+		Assert.assertEquals(upcomingHealthData.get("ibrCount"), nitaraHomePage.getUpcomingHealthStatus("ibr"));
+		Assert.assertEquals(upcomingHealthData.get("theileriaCount"), nitaraHomePage.getUpcomingHealthStatus("theileria"));
+		Assert.assertEquals(upcomingHealthData.get("anthraxCount"), nitaraHomePage.getUpcomingHealthStatus("anthrax"));
+		Assert.assertEquals(upcomingHealthData.get("rabiesCount"), nitaraHomePage.getUpcomingHealthStatus("rabies"));
+		Assert.assertEquals(upcomingHealthData.get("dewormingCount"), nitaraHomePage.getUpcomingHealthStatus("deworming"));
+		Assert.assertEquals(upcomingHealthData.get("followupCount"), nitaraHomePage.getUpcomingHealthStatus("follow_ups"));
+	
+		Assert.assertEquals(upcomingBreedingData.get("heatCount"), nitaraHomePage.getUpcomingBreedingStatus("heat"));
+		Assert.assertEquals(upcomingBreedingData.get("pdCount"), nitaraHomePage.getUpcomingBreedingStatus("pregnancy_diagnosis"));
+		Assert.assertEquals(upcomingBreedingData.get("calvingCount"), nitaraHomePage.getUpcomingBreedingStatus("calving"));
+		Assert.assertEquals(upcomingBreedingData.get("dryPeriodCount"), nitaraHomePage.getUpcomingBreedingStatus("dry_period"));
 	}
 	
 	@Test
@@ -93,9 +133,14 @@ public class ValidFarmData extends GenericBase{
 		JSONObject buffaloDetails = farmDetails.getJSONObject("buffaloDetails");
 		JSONObject farmStatus = buffaloDetails.getJSONObject("farmStatus");
 		JSONObject farmBreedingStatus = buffaloDetails.getJSONObject("farmBreedingStatus");
+		JSONObject upcomingActivities = buffaloDetails.getJSONObject("upcomingActivities");
+		JSONObject health = upcomingActivities.getJSONObject("health");
+		JSONObject breeding = upcomingActivities.getJSONObject("breeding");
 		
 		HashMap<String, String> cattleData = TestUtils.getCattleData(farmStatus);
 		HashMap<String, String> breedingData = TestUtils.getBreedingData(farmBreedingStatus);
+		HashMap<String, String> upcomingHealthData = TestUtils.getUpcomingHealthData(health);
+		HashMap<String, String> upcomingBreedingData = TestUtils.getUpcomingBreedingData(breeding);
 		
 		nitaraHomePage.chooseFilter("buffalo");
 		
@@ -110,5 +155,20 @@ public class ValidFarmData extends GenericBase{
 		Assert.assertEquals(breedingData.get("pregnantCount"), nitaraHomePage.getBreedingCattleCount("pregnant"));
 		Assert.assertEquals(breedingData.get("dryCount"), nitaraHomePage.getBreedingCattleCount("dry"));	
 	
+		Assert.assertEquals(upcomingHealthData.get("hsCount"), nitaraHomePage.getUpcomingHealthStatus("hs"));
+		Assert.assertEquals(upcomingHealthData.get("bqCount"), nitaraHomePage.getUpcomingHealthStatus("bq"));
+		Assert.assertEquals(upcomingHealthData.get("fmdCount"), nitaraHomePage.getUpcomingHealthStatus("fmd"));
+		Assert.assertEquals(upcomingHealthData.get("brucellosisCount"), nitaraHomePage.getUpcomingHealthStatus("brucellosis"));
+		Assert.assertEquals(upcomingHealthData.get("ibrCount"), nitaraHomePage.getUpcomingHealthStatus("ibr"));
+		Assert.assertEquals(upcomingHealthData.get("theileriaCount"), nitaraHomePage.getUpcomingHealthStatus("theileria"));
+		Assert.assertEquals(upcomingHealthData.get("anthraxCount"), nitaraHomePage.getUpcomingHealthStatus("anthrax"));
+		Assert.assertEquals(upcomingHealthData.get("rabiesCount"), nitaraHomePage.getUpcomingHealthStatus("rabies"));
+		Assert.assertEquals(upcomingHealthData.get("dewormingCount"), nitaraHomePage.getUpcomingHealthStatus("deworming"));
+		Assert.assertEquals(upcomingHealthData.get("followupCount"), nitaraHomePage.getUpcomingHealthStatus("follow_ups"));
+	
+		Assert.assertEquals(upcomingBreedingData.get("heatCount"), nitaraHomePage.getUpcomingBreedingStatus("heat"));
+		Assert.assertEquals(upcomingBreedingData.get("pdCount"), nitaraHomePage.getUpcomingBreedingStatus("pregnancy_diagnosis"));
+		Assert.assertEquals(upcomingBreedingData.get("calvingCount"), nitaraHomePage.getUpcomingBreedingStatus("calving"));
+		Assert.assertEquals(upcomingBreedingData.get("dryPeriodCount"), nitaraHomePage.getUpcomingBreedingStatus("dry_period"));
 	}
 }

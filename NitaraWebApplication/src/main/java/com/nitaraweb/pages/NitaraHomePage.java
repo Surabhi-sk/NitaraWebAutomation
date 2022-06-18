@@ -47,7 +47,7 @@ public class NitaraHomePage extends BasePage{
 //  <!----------  Farm Breeding Status  ---------->
 	
 	
-//  <!----------  Upcoming Activity : Health  ---------->
+//  <!----------  Upcoming Activity : Breeding  ---------->
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[1]/div[1]/div[1]/div/div/div[2]/div[1]/span[1]")
 	public WebElement upcomingHeatCount;
 	
@@ -59,19 +59,40 @@ public class NitaraHomePage extends BasePage{
 	
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[1]/div[1]/div[2]/div/div/div[2]/div[1]/span[1]")
 	public WebElement upcomingPregnancyDiagnosisCount;
-//  <!----------  Upcoming Activity : Health  ---------->
-	
-	
 //  <!----------  Upcoming Activity : Breeding  ---------->
-//	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[1]/div[2]/div/div/div[3]/div[1]/div/div/div/div[3]/div/span[1]")
-//	public WebElement upcomingVaccinationsCount;
+	
+	
+//  <!----------  Upcoming Activity : Health  ---------->
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[1]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsHS;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[2]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsBQ;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[3]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsFMD;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[4]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsBrucellosis;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[5]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsIBR;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[6]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsTheileria;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[7]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsAnthrax;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[2]/div/div/div/div/div[2]/div[8]/div[2]/span[1]")
+	public WebElement upcomingVaccinationsRabies;
 	
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[3]/div[1]/div/div/div/div[2]/div[1]/span[1]")
 	public WebElement upcomingFollowUpsCount;
 	
 	@FindBy(xpath = "//*[@id=\"content\"]/div/div/div[2]/div[3]/div[3]/div[2]/div/div/div/div[2]/div[1]/span[1]")
 	public WebElement upcomingDewormingCount;
-//  <!----------  Upcoming Activity : Breeding  ---------->
+//  <!----------  Upcoming Activity : Health  ---------->
 	
 	// Method to get total count of various cattle types
 	public String getCattleCount(String cattleType) {
@@ -124,8 +145,8 @@ public class NitaraHomePage extends BasePage{
 		optionRadioButton.click();
 	}
 	
-	// Method to get status of various upcoming activites
-	public String getUpcomingStatusCount(String activity) {
+	// Method to get status of various upcoming breeding activities
+	public String getUpcomingBreedingStatus(String activity) {
 		String count = "";
 		
 		if(activity.equals("heat")) {
@@ -136,12 +157,37 @@ public class NitaraHomePage extends BasePage{
 			count = upcomingPregnancyDiagnosisCount.getAttribute("textContent");
 		} else if(activity.equals("dry_period")) {
 			count = upcomingDryPeriodCount.getAttribute("textContent");
+		}
+		
+		return count.replaceAll("\\s", "");
+	}
+	
+	// Method to get status of various upcoming health activities
+	public String getUpcomingHealthStatus(String activity) {
+		String count = "";
+		
+		if(activity.equals("hs")) {
+			count = upcomingVaccinationsHS.getAttribute("textContent");
+		} else if(activity.equals("bq")) {
+			count = upcomingVaccinationsBQ.getAttribute("textContent");
+		} else if(activity.equals("fmd")) {
+			count = upcomingVaccinationsFMD.getAttribute("textContent");
+		} else if(activity.equals("brucellosis")) {
+			count = upcomingVaccinationsBrucellosis.getAttribute("textContent");
+		} else if(activity.equals("ibr")) {
+			count = upcomingVaccinationsIBR.getAttribute("textContent");
+		} else if(activity.equals("theileria")) {
+			count = upcomingVaccinationsTheileria.getAttribute("textContent");
+		} else if(activity.equals("anthrax")) {
+			count = upcomingVaccinationsAnthrax.getAttribute("textContent");
+		} else if(activity.equals("rabies")) {
+			count = upcomingVaccinationsRabies.getAttribute("textContent");
 		} else if(activity.equals("follow_ups")) {
 			count = upcomingFollowUpsCount.getAttribute("textContent");
 		} else if(activity.equals("deworming")) {
 			count = upcomingDewormingCount.getAttribute("textContent");
 		}
 		
-		return count;
+		return count.replaceAll("\\s", "");
 	}
 }
