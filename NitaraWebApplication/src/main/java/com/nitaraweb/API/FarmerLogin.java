@@ -38,9 +38,9 @@ public class FarmerLogin extends GenericBase {
 		response.prettyPeek();
 
 
-		int  statusCode = response.getStatusCode();
+		int statusCode = response.getStatusCode();
 
-		System.out.println("The status code recieved: " + statusCode);
+		//System.out.println("The status code recieved: " + statusCode);
 
 		//Validate Status code
 		Assert.assertEquals(response.getStatusCode(),200);

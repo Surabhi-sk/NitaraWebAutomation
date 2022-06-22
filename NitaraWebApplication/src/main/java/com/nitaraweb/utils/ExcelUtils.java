@@ -13,8 +13,10 @@ import java.util.Objects;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -58,11 +60,13 @@ public static List<Map<String,String>> getTestDetails(String sheetname) throws I
 						String dateValue = format.format(sheet.getRow(i).getCell(j).getDateCellValue());
 						map.put(key, dateValue);
 					}
-					else {
-					
-				}
+					else if(sheet.getRow(i).getCell(j).getCellType() == CellType.NUMERIC) {
+						DataFormatter dataFormatter = new DataFormatter();
+						String value = dataFormatter.formatCellValue(sheet.getRow(i).getCell(j));
+						map.put(key, value);
+					}
 				
-			}
+				}
 				list.add(map);
 			}
 			
@@ -81,6 +85,13 @@ public static List<Map<String,String>> getTestDetails(String sheetname) throws I
 				e.printStackTrace();
 			}
 		}
+		
+		for(int i = 0; i < list.size(); i++) {
+			for(Map.Entry<String, String> entry : list.get(i).entrySet()) {
+				System.out.println(entry.getKey() + " " + entry.getValue());
+			}
+		}
+		
 		return list;
 	}
 	
