@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-22T10:37:32 IST" name="Default suite" finished-at="2022-06-22T10:37:53 IST" duration-ms="21138">
+  <suite started-at="2022-06-22T12:40:49 IST" name="Default suite" finished-at="2022-06-22T12:41:39 IST" duration-ms="50196">
     <groups>
     </groups>
-    <test started-at="2022-06-22T10:37:32 IST" name="Default test" finished-at="2022-06-22T10:37:53 IST" duration-ms="21138">
+    <test started-at="2022-06-22T12:40:49 IST" name="Default test" finished-at="2022-06-22T12:41:39 IST" duration-ms="50196">
       <class name="com.nitaraweb.AccountManagement.ValidUpcomingData">
-        <test-method is-config="true" signature="initializaton()[pri:0, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@37d4349f]" started-at="2022-06-22T10:37:32 IST" name="initializaton" finished-at="2022-06-22T10:37:34 IST" duration-ms="2047" status="PASS">
+        <test-method is-config="true" signature="initializaton()[pri:0, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@6e0f5f7f]" started-at="2022-06-22T12:40:49 IST" name="initializaton" finished-at="2022-06-22T12:40:53 IST" duration-ms="3785" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializaton -->
-        <test-method signature="validUpcomingData_all()[pri:1, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@37d4349f]" started-at="2022-06-22T10:37:34 IST" name="validUpcomingData_all" finished-at="2022-06-22T10:37:49 IST" duration-ms="15397" status="PASS">
+        <test-method signature="validUpcomingData_all()[pri:1, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@6e0f5f7f]" started-at="2022-06-22T12:40:53 IST" name="validUpcomingData_all" finished-at="2022-06-22T12:41:15 IST" duration-ms="22210" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validUpcomingData_all -->
-        <test-method is-config="true" signature="tearDownMain()[pri:0, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@37d4349f]" started-at="2022-06-22T10:37:49 IST" name="tearDownMain" finished-at="2022-06-22T10:37:53 IST" duration-ms="3663" status="PASS">
+        <test-method signature="validUpcomingData_cow()[pri:2, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@6e0f5f7f]" started-at="2022-06-22T12:41:15 IST" name="validUpcomingData_cow" finished-at="2022-06-22T12:41:26 IST" duration-ms="10396" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUpcomingData_cow -->
+        <test-method signature="validUpcomingData_bull()[pri:3, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@6e0f5f7f]" started-at="2022-06-22T12:41:26 IST" name="validUpcomingData_bull" finished-at="2022-06-22T12:41:36 IST" duration-ms="9886" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUpcomingData_bull -->
+        <test-method is-config="true" signature="tearDownMain()[pri:0, instance:com.nitaraweb.AccountManagement.ValidUpcomingData@6e0f5f7f]" started-at="2022-06-22T12:41:36 IST" name="tearDownMain" finished-at="2022-06-22T12:41:39 IST" duration-ms="3871" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMain -->

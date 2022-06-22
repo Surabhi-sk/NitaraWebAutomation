@@ -201,33 +201,6 @@ public class NitaraHomePage extends BasePage{
 	}
 	
 	public String getUpcomingCount(String paramName) {
-//		if(paramName.equals("heat_count")) {
-//			return upcoming_data.get("heat_count");
-//		}else if(paramName.equals("pd_count")) {
-//			return upcoming_data.get("pd_count");
-//		}else if(paramName.equals("followUps_count")) {
-//			return upcoming_data.get("followUps_count");
-//		}else if(paramName.equals("calving_count")) {
-//			return upcoming_data.get("calving_count");
-//		}else if(paramName.equals("dryPeriod_count")) {
-//			return upcoming_data.get("dryPeriod_count");
-//		}else if(paramName.equals("deworming_count")) {
-//			return upcoming_data.get("deworming_count");
-//		}else if(paramName.equals("vaccination_hs_count")) {
-//			return upcoming_data.get("vaccination_hs_count");
-//		}else if(paramName.equals("vaccination_bq_count")) {
-//			return upcoming_data.get("vaccination_bq_count");
-//		}else if(paramName.equals("vaccination_fmd_count")) {
-//			return upcoming_data.get("vaccination_fmd_count");
-//		}else if(paramName.equals("vaccination_brucellis_count")) {
-//			return upcoming_data.get("vaccination_brucellis_count");
-//		}else if(paramName.equals("vaccination_ibr_count")) {
-//			return upcoming_data.get("vaccination_ibr_count");
-//		}else if(paramName.equals("vaccination_theileria_count")) {
-//			return upcoming_data.get("vaccination_theileria_count");
-//		}else if(paramName.equals("vaccination_anthrex_count")) {
-//			return upcoming_data.get("vaccination_anthrex_count");
-//		}else return upcoming_data.get("rabies_count");
 		return upcoming_data.get(paramName);
 	}
 }

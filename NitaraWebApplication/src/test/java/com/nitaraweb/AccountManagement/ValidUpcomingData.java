@@ -115,99 +115,99 @@ public class ValidUpcomingData extends GenericBase{
 		
 	}
 
-//	@Test(priority=2)
-//	public void validUpcomingData_cow() throws Exception {
+	@Test(priority=2)
+	public void validUpcomingData_cow() throws Exception {
+
+//		basePage.launchURL(properties.getProperty("url"));
 //
-////		basePage.launchURL(properties.getProperty("url"));
-////
-////		nitaraLoginPage.click_SignIn();
-//		Thread.sleep(5000);
+//		nitaraLoginPage.click_SignIn();
+		Thread.sleep(5000);
+
+		nitaraHomePage.click_cow();
+		
+		nitaraHomePage.getCattleCount();
+		
+
+		ViewFarmAnalysis farmAnalysis = new ViewFarmAnalysis();
+		JSONObject response = farmAnalysis.viewFarmAnalysis();
+		JSONObject cowDetails = ((JSONObject) ((JSONObject) response.get("farmAnalysis")).get("cowDetails"));
+		JSONObject farmStatus = (JSONObject) ((JSONObject) cowDetails.get("farmStatus"));
+		//Getting values
+		int calfCount = (Integer) farmStatus.get("calfCount");
+		int heiferCount = (Integer) farmStatus.get("heiferCount");
+		int bullCount = (Integer) farmStatus.get("bullCount");
+		int milchCount = (Integer) farmStatus.get("milchCount");
+		int cattleCount = (Integer) farmStatus.get("cattleCount");
+
+		String calf_string = nitaraHomePage.getCount("calf");
+		String heifer_string = nitaraHomePage.getCount("heifer");
+		String milch_string = nitaraHomePage.getCount("milch");
+		String bull_string = nitaraHomePage.getCount("bull");
+		String total_string = nitaraHomePage.getCount("total").substring(0, 2);
+		//		
+		int calf = Integer.parseInt(calf_string);
+		int heifer = Integer.parseInt(heifer_string);
+		int milch= Integer.parseInt(milch_string);
+		int bull = Integer.parseInt(bull_string);
+		int total = Integer.parseInt(total_string);
+
+
+		//Asserting values
+		Assert.assertEquals(calfCount, calf, "The calf count does not match.");
+		Assert.assertEquals(heiferCount, heifer, "The heifer count does not match.");
+		Assert.assertEquals(bullCount, bull, "The bull count does not match.");
+		Assert.assertEquals(milchCount, milch, "The milch count does not match.");
+		Assert.assertEquals(cattleCount, total, "The total count does not match.");
+		
+		
+
+	}
+
+	
+	@Test(priority=3)
+	public void validUpcomingData_bull() throws Exception {
+		
+//		basePage.launchURL(properties.getProperty("url"));
 //
-//		nitaraHomePage.click_cow();
-//		
-//		nitaraHomePage.getCattleCount();
-//		
-//
-//		ViewFarmAnalysis farmAnalysis = new ViewFarmAnalysis();
-//		JSONObject response = farmAnalysis.viewFarmAnalysis();
-//		JSONObject cowDetails = ((JSONObject) ((JSONObject) response.get("farmAnalysis")).get("cowDetails"));
-//		JSONObject farmStatus = (JSONObject) ((JSONObject) cowDetails.get("farmStatus"));
-//		//Getting values
-//		int calfCount = (Integer) farmStatus.get("calfCount");
-//		int heiferCount = (Integer) farmStatus.get("heiferCount");
-//		int bullCount = (Integer) farmStatus.get("bullCount");
-//		int milchCount = (Integer) farmStatus.get("milchCount");
-//		int cattleCount = (Integer) farmStatus.get("cattleCount");
-//
-//		String calf_string = nitaraHomePage.getCount("calf");
-//		String heifer_string = nitaraHomePage.getCount("heifer");
-//		String milch_string = nitaraHomePage.getCount("milch");
-//		String bull_string = nitaraHomePage.getCount("bull");
-//		String total_string = nitaraHomePage.getCount("total").substring(0, 2);
-//		//		
-//		int calf = Integer.parseInt(calf_string);
-//		int heifer = Integer.parseInt(heifer_string);
-//		int milch= Integer.parseInt(milch_string);
-//		int bull = Integer.parseInt(bull_string);
-//		int total = Integer.parseInt(total_string);
-//
-//
-//		//Asserting values
-//		Assert.assertEquals(calfCount, calf, "The calf count does not match.");
-//		Assert.assertEquals(heiferCount, heifer, "The heifer count does not match.");
-//		Assert.assertEquals(bullCount, bull, "The bull count does not match.");
-//		Assert.assertEquals(milchCount, milch, "The milch count does not match.");
-//		Assert.assertEquals(cattleCount, total, "The total count does not match.");
-//		
-//		
-//
-//	}
-//
-//	
-//	@Test(priority=3)
-//	public void validUpcomingData_bull() throws Exception {
-//		
-////		basePage.launchURL(properties.getProperty("url"));
-////
-////		nitaraLoginPage.click_SignIn();
-//		
-//		Thread.sleep(5000);
-//		nitaraHomePage.click_bull();
-//		
-//		nitaraHomePage.getCattleCount();
-//		
-//
-//		ViewFarmAnalysis farmAnalysis = new ViewFarmAnalysis();
-//		JSONObject response = farmAnalysis.viewFarmAnalysis();
-//		JSONObject cowDetails = ((JSONObject) ((JSONObject) response.get("farmAnalysis")).get("buffaloDetails"));
-//		JSONObject farmStatus = (JSONObject) ((JSONObject) cowDetails.get("farmStatus"));
-//		//Getting values
-//		int calfCount = (Integer) farmStatus.get("calfCount");
-//		int heiferCount = (Integer) farmStatus.get("heiferCount");
-//		int bullCount = (Integer) farmStatus.get("bullCount");
-//		int milchCount = (Integer) farmStatus.get("milchCount");
-//		int cattleCount = (Integer) farmStatus.get("cattleCount");
-//
-//		String calf_string = nitaraHomePage.getCount("calf");
-//		String heifer_string = nitaraHomePage.getCount("heifer");
-//		String milch_string = nitaraHomePage.getCount("milch");
-//		String bull_string = nitaraHomePage.getCount("bull");
-//		String total_string = nitaraHomePage.getCount("total").substring(0, 1);
-//		//		
-//		int calf = Integer.parseInt(calf_string);
-//		int heifer = Integer.parseInt(heifer_string);
-//		int milch= Integer.parseInt(milch_string);
-//		int bull = Integer.parseInt(bull_string);
-//		int total = Integer.parseInt(total_string);
-//
-//
-//		//Asserting values
-//		Assert.assertEquals(calfCount, calf, "The calf count does not match.");
-//		Assert.assertEquals(heiferCount, heifer, "The heifer count does not match.");
-//		Assert.assertEquals(bullCount, bull, "The bull count does not match.");
-//		Assert.assertEquals(milchCount, milch, "The milch count does not match.");
-//		Assert.assertEquals(cattleCount, total, "The total count does not match.");
-//
-//	}
+//		nitaraLoginPage.click_SignIn();
+		
+		Thread.sleep(5000);
+		nitaraHomePage.click_bull();
+		
+		nitaraHomePage.getCattleCount();
+		
+
+		ViewFarmAnalysis farmAnalysis = new ViewFarmAnalysis();
+		JSONObject response = farmAnalysis.viewFarmAnalysis();
+		JSONObject cowDetails = ((JSONObject) ((JSONObject) response.get("farmAnalysis")).get("buffaloDetails"));
+		JSONObject farmStatus = (JSONObject) ((JSONObject) cowDetails.get("farmStatus"));
+		//Getting values
+		int calfCount = (Integer) farmStatus.get("calfCount");
+		int heiferCount = (Integer) farmStatus.get("heiferCount");
+		int bullCount = (Integer) farmStatus.get("bullCount");
+		int milchCount = (Integer) farmStatus.get("milchCount");
+		int cattleCount = (Integer) farmStatus.get("cattleCount");
+
+		String calf_string = nitaraHomePage.getCount("calf");
+		String heifer_string = nitaraHomePage.getCount("heifer");
+		String milch_string = nitaraHomePage.getCount("milch");
+		String bull_string = nitaraHomePage.getCount("bull");
+		String total_string = nitaraHomePage.getCount("total").substring(0, 1);
+		//		
+		int calf = Integer.parseInt(calf_string);
+		int heifer = Integer.parseInt(heifer_string);
+		int milch= Integer.parseInt(milch_string);
+		int bull = Integer.parseInt(bull_string);
+		int total = Integer.parseInt(total_string);
+
+
+		//Asserting values
+		Assert.assertEquals(calfCount, calf, "The calf count does not match.");
+		Assert.assertEquals(heiferCount, heifer, "The heifer count does not match.");
+		Assert.assertEquals(bullCount, bull, "The bull count does not match.");
+		Assert.assertEquals(milchCount, milch, "The milch count does not match.");
+		Assert.assertEquals(cattleCount, total, "The total count does not match.");
+
+	}
 
 }

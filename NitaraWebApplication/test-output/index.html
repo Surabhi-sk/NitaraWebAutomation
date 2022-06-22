@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\PRASHU\AppData\Local\Temp\testng-eclipse--1110389271\testng-customsuite.xml</span>
+                    <span>C:\Users\PRASHU\AppData\Local\Temp\testng-eclipse--305430354\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -105,6 +105,16 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.nitaraweb.AccountManagement.ValidUpcomingData" class="method navigator-link" hash-for-method="validUpcomingData_all">validUpcomingData_all</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.nitaraweb.AccountManagement.ValidUpcomingData" class="method navigator-link" hash-for-method="validUpcomingData_bull">validUpcomingData_bull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.nitaraweb.AccountManagement.ValidUpcomingData" class="method navigator-link" hash-for-method="validUpcomingData_cow">validUpcomingData_cow</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -132,12 +142,26 @@
                   <span class="method-name">validUpcomingData_all</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validUpcomingData_bull">
+                  </a> <!-- validUpcomingData_bull -->
+                  <span class="method-name">validUpcomingData_bull</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validUpcomingData_cow">
+                  </a> <!-- validUpcomingData_cow -->
+                  <span class="method-name">validUpcomingData_cow</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\PRASHU\AppData\Local\Temp\testng-eclipse--1110389271\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\PRASHU\AppData\Local\Temp\testng-eclipse--305430354\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -186,16 +210,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'validUpcomingData_all')
 data.setCell(0, 2, 'com.nitaraweb.AccountManagement.ValidUpcomingData')
-data.setCell(0, 3, 15397);
+data.setCell(0, 3, 22210);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'validUpcomingData_cow')
+data.setCell(1, 2, 'com.nitaraweb.AccountManagement.ValidUpcomingData')
+data.setCell(1, 3, 10396);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'validUpcomingData_bull')
+data.setCell(2, 2, 'com.nitaraweb.AccountManagement.ValidUpcomingData')
+data.setCell(2, 3, 9886);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 15 seconds</span>
+              <span class="suite-total-time">Total running time: 42 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -228,11 +260,19 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">validUpcomingData_all</span>
-                <span class="method-start">2067 ms</span>
+                <span class="method-start">3814 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">validUpcomingData_cow</span>
+                <span class="method-start">26031 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">validUpcomingData_bull</span>
+                <span class="method-start">36429 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">tearDownMain</span>
-                <span class="method-start">17472 ms</span>
+                <span class="method-start">46317 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
