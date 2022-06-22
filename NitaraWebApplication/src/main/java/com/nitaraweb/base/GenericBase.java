@@ -50,10 +50,6 @@ public class GenericBase extends PageInitialiser{
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 
-		//		driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICIT_WAIT, TimeUnit.SECONDS);
-		//		driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-
-
 
 	}
 
@@ -75,9 +71,10 @@ public class GenericBase extends PageInitialiser{
 	}
 
 	@AfterTest
-	public void tearDownMain() {
-		//driver.manage().deleteAllCookies();
-		driver.close();
+	public void tearDownMain() throws InterruptedException {
+//		driver.manage().deleteAllCookies();
+		driver.quit();
+		Thread.sleep(3000);
 	}
 
 }

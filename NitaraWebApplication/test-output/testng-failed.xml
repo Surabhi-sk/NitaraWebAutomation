@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.nitaraweb.API.ViewFarmAnalysis">
+      <class name="com.nitaraweb.AccountManagement.ValidUpcomingData">
         <methods>
-          <include name="viewFarmAnalysis"/>
+          <include name="initializaton"/>
+          <include name="tearDownMain"/>
+          <include name="validUpcomingData_all"/>
         </methods>
-      </class> <!-- com.nitaraweb.API.ViewFarmAnalysis -->
+      </class> <!-- com.nitaraweb.AccountManagement.ValidUpcomingData -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

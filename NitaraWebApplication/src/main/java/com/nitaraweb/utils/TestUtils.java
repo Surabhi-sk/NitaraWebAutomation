@@ -30,7 +30,7 @@ public class TestUtils extends GenericBase{
 	public static void captureScreenshot(String functionality) {
 		File file  = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(file, new File("src\\test\\resources\\Screenshots\\"+functionality+"_Screenshot.jpg"));
+			FileUtils.copyFile(file, new File(date+functionality+"_Screenshot.jpg"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

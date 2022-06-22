@@ -22,7 +22,7 @@ public class ViewFarmAnalysis
 {
 
 	@Test
-	public void viewFarmAnalysis() throws Exception
+	public JSONObject viewFarmAnalysis() throws Exception
 
 	{
 		Properties properties = new Properties();
@@ -55,6 +55,10 @@ public class ViewFarmAnalysis
 
 		JSONObject responseObject = new JSONObject(response.asString());
 
-		System.out.println(responseObject);
+//		System.out.println(responseObject);
+		return responseObject;
 	}
+	
+
+	
 }	
