@@ -71,10 +71,9 @@ public class RegisterMilkingCattle extends GenericBase{
 		String cattleId = JsonPath.from(jsonString).get("cattleId");
 
 		//Write CattleId 
-		filepath = prop.getProperty("CattleBreedingData");
+		filepath = prop.getProperty("TestData_API");
 		exceldata.writeStringData("GeneralData", "CattleId", cattleId, filepath);
-		filepath = prop.getProperty("CattleOtherActivities");
-		exceldata.writeStringData("GeneralData", "CattleId", cattleId, filepath);
+	
 
 		return cattleId;
 	}
