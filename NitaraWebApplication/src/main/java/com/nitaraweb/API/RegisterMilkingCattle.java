@@ -1,3 +1,7 @@
+package com.nitaraweb.API;
+
+
+
 public class RegisterMilkingCattle extends GenericBase{
 
 
