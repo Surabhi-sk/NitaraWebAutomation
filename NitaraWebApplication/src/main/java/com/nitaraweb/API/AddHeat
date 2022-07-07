@@ -1,0 +1,41 @@
+package com.nitaraweb.API;
+
+
+
+public class AddHeat extends GenericBase{
+
+public void addHeatData(String date , String token, String url) throws Exception {
+
+		String abstractname = properties.getProperty("AddHeat"); // CM/AddHeat
+		RestAssured.baseURI = url;
+		String filepath = properties.getProperty("TestData_API"); // src\\main\\java\\com\\nitaraweb\\testdata\\TestData_API.xlsx - Add the file at this location.
+
+		RequestSpecification request = RestAssured.given();
+
+		//Read from excel to JSONObject
+		ExcelUtils data = new ExcelUtils();
+		JSONObject requestParams = data.readCase("AddHeat","AddHeat",filepath);
+		System.out.println(requestParams);
+		requestParams.put("heatDateTime", date);
+
+		System.out.println(requestParams);
+		Response response = request.body(requestParams.toString())
+				.header("Content-Type", "application/json")
+				.header("Authorization","Bearer " + token)
+				.post(abstractname);
+
+		System.out.println("\n\"" + abstractname + "\"\n");
+		//Print response
+		response.prettyPeek();
+
+		//Validate status code
+		Assert.assertEquals(response.getStatusCode(),200);
+
+
+		//Validate success message
+		String jsonString = response.asString();
+		String  message = JsonPath.from(jsonString).get("message");
+		Assert.assertEquals(message,"Heat data added Successfully.");
+
+
+	}
