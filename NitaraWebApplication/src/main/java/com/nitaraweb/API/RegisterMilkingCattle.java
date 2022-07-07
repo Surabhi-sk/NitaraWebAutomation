@@ -23,9 +23,10 @@ public class RegisterMilkingCattle extends GenericBase{
 
 		//Update tag numbers in Registration.xlsx
 		ExcelUtils var = new ExcelUtils();
-		String TagNo = var.generateNo(8);
+		Helper helper = new Helper();
+		String TagNo = helper.generateNo(8);
 		var.writeStringData("GeneralData","TagNumber",TagNo, filepath);
-		String CoopNo = var.generateNo(12);
+		String CoopNo = helper.generateNo(12);
 		var.writeStringData("GeneralData","CooperativeTagNumber",CoopNo, filepath);
 
 		JSONObject dataObject = var.readCase("RegMilkingDryCattle","RegisterMilk",filepath);
@@ -45,8 +46,7 @@ public class RegisterMilkingCattle extends GenericBase{
 
 		}
 
-		Helper dates = new Helper();
-		JSONObject obj = dates.getMonthandYear(ageInMonths);
+		JSONObject obj = helper.getMonthandYear(ageInMonths);
 		request.formParam("yearOfBirth", obj.get("Year"));
 		request.formParam("monthOfBirth", obj.get("Month"));
 		request.formParam("currentLactation", lactation);
