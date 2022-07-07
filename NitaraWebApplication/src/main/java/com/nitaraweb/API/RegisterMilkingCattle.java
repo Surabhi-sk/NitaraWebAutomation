@@ -24,11 +24,11 @@ public class RegisterMilkingCattle extends GenericBase{
 		//Update tag numbers in Registration.xlsx
 		ExcelUtils var = new ExcelUtils();
 		String TagNo = var.generateNo(8);
-		exceldata.writeStringData("GeneralData","TagNumber",TagNo, filepath);
+		var.writeStringData("GeneralData","TagNumber",TagNo, filepath);
 		String CoopNo = var.generateNo(12);
-		exceldata.writeStringData("GeneralData","CooperativeTagNumber",CoopNo, filepath);
+		var.writeStringData("GeneralData","CooperativeTagNumber",CoopNo, filepath);
 
-		JSONObject dataObject = exceldata.readCase("RegMilkingDryCattle","RegisterMilk",filepath);
+		JSONObject dataObject = var.readCase("RegMilkingDryCattle","RegisterMilk",filepath);
 
 		request.header("Authorization","Bearer " + token);
 		for (String key: dataObject.keySet()){
@@ -74,7 +74,7 @@ public class RegisterMilkingCattle extends GenericBase{
 
 		//Write CattleId 
 		filepath = properties.getProperty("TestData_API");
-		exceldata.writeStringData("GeneralData", "CattleId", cattleId, filepath);
+		var.writeStringData("GeneralData", "CattleId", cattleId, filepath);
 	
 
 		return cattleId;
