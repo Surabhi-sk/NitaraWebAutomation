@@ -159,5 +159,105 @@ public static List<Map<String,String>> getTestDetails(String sheetname) throws I
 	}               
 	return -1;
 }
+	
+	
+	public JSONObject readCase(String sheet, String scenario, String filepath) throws IOException {
+		String absPath = new File(filepath).getAbsolutePath();
+		
+		FileInputStream input = new FileInputStream(absPath);
+		XSSFWorkbook workbook = new XSSFWorkbook(input);
+
+		FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();	 
+		evaluator.evaluateAll();
+
+		XSSFSheet ws=workbook.getSheet(sheet);
+		XSSFCell cell ;
+
+		int  row = findRow(ws,scenario);
+
+		if(row==-1) {
+			System.out.println("No such test data available");
+			workbook.close();
+			return null;
+		}
+		
+		
+		int lastrow = ws.getLastRowNum();
+		int lastcol = ws.getRow(0).getLastCellNum();
+		
+		JSONObject obj = new JSONObject();
+		
+			for(int j=1;j<lastcol; j++) {
+				String key = ws.getRow(0).getCell(j).getStringCellValue();
+				if( ws.getRow(row).getCell(j) == null ||ws.getRow(row).getCell(j).getCellType() == CellType.BLANK) {
+					continue;
+				}
+				
+				if(ws.getRow(row).getCell(j).getCellType()== CellType.FORMULA){
+					
+					CellValue cellValue = evaluator.evaluate(ws.getRow(row).getCell(j));
+					 
+					if(cellValue.getCellType() == CellType.STRING ) {
+					    	String value = ws.getRow(row).getCell(j).getStringCellValue();
+							obj.put(key, value);
+					}
+					        else {
+					    	Date javaDate= DateUtil.getJavaDate((double) cellValue.getNumberValue());
+						    obj.put(key,new SimpleDateFormat("yyyy-MM-dd").format(javaDate));
+					        
+					}
+					continue;
+				}
+				
+				if(ws.getRow(row).getCell(j).getCellType() == CellType.STRING) {
+					String value = ws.getRow(row).getCell(j).getStringCellValue();
+					obj.put(key, value);
+				}
+				else if (ws.getRow(row).getCell(j).getCellType() == CellType.BOOLEAN) {
+					obj.put(key,ws.getRow(row).getCell(j).getBooleanCellValue());
+					continue;
+				}
+				else
+				{
+					if( DateUtil.isCellDateFormatted(ws.getRow(row).getCell(j))){
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					String dateValue = format.format(ws.getRow(row).getCell(j).getDateCellValue());
+					obj.put(key, dateValue);
+					}
+					else {
+					obj.put(key, ws.getRow(row).getCell(j).getNumericCellValue());
+				
+					}
+			
+		}
+			}
+		
+		
+		workbook.close();
+		return(obj);
+
+		
+	}
+	
+	public void writeStringData(String sheet, String field, String value, String filepath ) throws Exception {
+
+		String absPath = new File(filepath).getAbsolutePath();
+		FileInputStream input = new FileInputStream(absPath);
+		XSSFWorkbook workbook = new XSSFWorkbook(input);
+
+		XSSFSheet ws=workbook.getSheet(sheet);
+
+		int rownumber = findRow(ws, field);
+		ws.getRow(rownumber).getCell(1).setCellValue(value);
+
+		input.close();
+
+		FileOutputStream outputStream = new FileOutputStream(absPath);
+		workbook.write(outputStream);
+		workbook.close();
+		outputStream.close();
+
+
+	}
 
 }
