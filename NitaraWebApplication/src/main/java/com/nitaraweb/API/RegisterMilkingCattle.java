@@ -5,7 +5,7 @@ package com.nitaraweb.API;
 public class RegisterMilkingCattle extends GenericBase{
 
 
-	public String registerMilkingCattledata(String url,String farm, int ageInMonths, String lactation , String lastCalvingDate) throws Exception {
+	public String registerMilkingCattledata(String url, String token, String farm, int ageInMonths, String lactation , String lastCalvingDate) throws Exception {
 
 		/*Update Farm Details*/
 		ExcelUtils exceldata = new ExcelUtils();
@@ -14,10 +14,6 @@ public class RegisterMilkingCattle extends GenericBase{
 		String abstractname = properties.getProperty("RegisterMilkingOrDryCattle"); //  /CM/RegisterMilkingOrDryCattle - Add in Config File
 		
 		RestAssured.baseURI = url;
-		
-		FarmerLogin user = new FarmerLogin();
-		// get user token
-		String token = user.farmerLogin(url);
 
 		RequestSpecification request = RestAssured.given();
 
@@ -77,6 +73,6 @@ public class RegisterMilkingCattle extends GenericBase{
 		var.writeStringData("GeneralData", "CattleId", cattleId, filepath);
 	
 
-		return cattleId;
+		return TagNo;
 	}
 }
