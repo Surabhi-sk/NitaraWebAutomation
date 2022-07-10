@@ -21,5 +21,15 @@ public class Helper{
 		return obj;
 	}
 	
+	
+	public String getPastDate(int days) throws Exception {
+		
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, -(days));
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String dateValue = format.format(cal.getTime());
+		return dateValue;
+	}
+	
   
 }
