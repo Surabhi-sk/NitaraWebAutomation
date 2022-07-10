@@ -13,7 +13,4 @@ String date = help.getPastDate(15);
 AddHeat heat = new AddHeat();
 heat.addHeat(date , token, url)
 
-Helper help = new Helper();
-String date = help.getPastDate(15);
-
 }
