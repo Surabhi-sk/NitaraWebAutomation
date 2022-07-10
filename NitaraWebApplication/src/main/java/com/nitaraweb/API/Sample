@@ -1,0 +1,19 @@
+public void sampleTestcase(){
+
+String url = properties.getProperty("BaseUrl"); // Add in config file - BaseUrl = https://test.nitara.co.in 
+FarmerLogin user = new FarmerLogin();
+String token = user.farmerLogin(url);
+
+RegisterMilkingCattle reg = new RegisterMilkingCattle();
+String TagNo = reg.registerMilkingCattledata(url,token, <farmId> , <ageInMonths>,<lactation>, <lastCalvingDate>);
+
+Helper help = new Helper();
+String date = help.getPastDate(15);
+
+AddHeat heat = new AddHeat();
+heat.addHeat(date , token, url)
+
+Helper help = new Helper();
+String date = help.getPastDate(15);
+
+}
