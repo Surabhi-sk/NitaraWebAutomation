@@ -1,7 +1,7 @@
 package com.nitaraweb.API;
 
 
-public class RegisterMilkingCattle extends GenericBase{
+public class AddDeworming extends GenericBase{
 public void addDeworming(String date,String token,String url) throws Exception  {
 
 		String abstractname = properties.getProperty("AddDeworming"); // /CM/AddDeworming - in config file
